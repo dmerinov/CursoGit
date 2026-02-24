@@ -16,18 +16,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CalculatorScreen(
-    state: CalculatorState,
-    modifier: Modifier = Modifier,
-    onAction: (CalculatorAction) -> Unit
-) {
+fun CalculatorScreen(modifier: Modifier = Modifier) {
     val buttonSpacing = 8.dp
 
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(Color.Black)
-            .padding(buttonSpacing)
+    Box(modifier = modifier
+        .fillMaxSize()
+        .background(Color.Black)
+        .padding(buttonSpacing)
     ) {
         Column(
             modifier = Modifier
@@ -37,7 +32,7 @@ fun CalculatorScreen(
         ) {
             // Display
             Text(
-                text = state.display,
+                text = "0",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 32.dp, horizontal = 8.dp),
@@ -49,32 +44,33 @@ fun CalculatorScreen(
 
             // Buttons
             Row(horizontalArrangement = Arrangement.spacedBy(buttonSpacing)) {
-                CalculatorButton(symbol = "AC", modifier = Modifier.weight(1f), color = Color.Gray) { onAction(CalculatorAction.Clear) }
-                CalculatorButton(symbol = "Del", modifier = Modifier.weight(1f), color = Color.Gray) { onAction(CalculatorAction.Delete) }
-                CalculatorButton(symbol = "/", modifier = Modifier.weight(1f), color = Color(0xFFFFA500)) { onAction(CalculatorAction.Operation(CalculatorOperation.Divide)) }
+                CalculatorButton(symbol = "AC", modifier = Modifier.weight(1f), color = Color.Gray)
+                CalculatorButton(symbol = "+/-", modifier = Modifier.weight(1f), color = Color.Gray)
+                CalculatorButton(symbol = "%", modifier = Modifier.weight(1f), color = Color.Gray)
+                CalculatorButton(symbol = "/", modifier = Modifier.weight(1f), color = Color(0xFFFFA500)) // Orange
             }
             Row(horizontalArrangement = Arrangement.spacedBy(buttonSpacing)) {
-                CalculatorButton(symbol = "7", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(7)) }
-                CalculatorButton(symbol = "8", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(8)) }
-                CalculatorButton(symbol = "9", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(9)) }
-                CalculatorButton(symbol = "x", modifier = Modifier.weight(1f), color = Color(0xFFFFA500)) { onAction(CalculatorAction.Operation(CalculatorOperation.Multiply)) }
+                CalculatorButton(symbol = "7", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "8", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "9", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "x", modifier = Modifier.weight(1f), color = Color(0xFFFFA500))
             }
             Row(horizontalArrangement = Arrangement.spacedBy(buttonSpacing)) {
-                CalculatorButton(symbol = "4", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(4)) }
-                CalculatorButton(symbol = "5", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(5)) }
-                CalculatorButton(symbol = "6", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(6)) }
-                CalculatorButton(symbol = "-", modifier = Modifier.weight(1f), color = Color(0xFFFFA500)) { onAction(CalculatorAction.Operation(CalculatorOperation.Subtract)) }
+                CalculatorButton(symbol = "4", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "5", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "6", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "-", modifier = Modifier.weight(1f), color = Color(0xFFFFA500))
+            }
+             Row(horizontalArrangement = Arrangement.spacedBy(buttonSpacing)) {
+                CalculatorButton(symbol = "1", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "2", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "3", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "+", modifier = Modifier.weight(1f), color = Color(0xFFFFA500))
             }
             Row(horizontalArrangement = Arrangement.spacedBy(buttonSpacing)) {
-                CalculatorButton(symbol = "1", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(1)) }
-                CalculatorButton(symbol = "2", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(2)) }
-                CalculatorButton(symbol = "3", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Number(3)) }
-                CalculatorButton(symbol = "+", modifier = Modifier.weight(1f), color = Color(0xFFFFA500)) { onAction(CalculatorAction.Operation(CalculatorOperation.Add)) }
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(buttonSpacing)) {
-                CalculatorButton(symbol = "0", modifier = Modifier.weight(2f)) { onAction(CalculatorAction.Number(0)) }
-                CalculatorButton(symbol = ".", modifier = Modifier.weight(1f)) { onAction(CalculatorAction.Decimal) }
-                CalculatorButton(symbol = "=", modifier = Modifier.weight(1f), color = Color(0xFFFFA500)) { onAction(CalculatorAction.Calculate) }
+                CalculatorButton(symbol = "0", modifier = Modifier.weight(2f))
+                CalculatorButton(symbol = ".", modifier = Modifier.weight(1f))
+                CalculatorButton(symbol = "=", modifier = Modifier.weight(1f), color = Color(0xFFFFA500))
             }
         }
     }
@@ -84,11 +80,10 @@ fun CalculatorScreen(
 fun CalculatorButton(
     symbol: String,
     modifier: Modifier = Modifier,
-    color: Color = Color(0xFF333333), // Dark Gray
-    onClick: () -> Unit
+    color: Color = Color(0xFF333333) // Dark Gray
 ) {
     Button(
-        onClick = onClick,
+        onClick = { /* No hace nada */ },
         modifier = modifier
             .clip(CircleShape)
             .aspectRatio(if (symbol == "0") 2f else 1f),

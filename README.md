@@ -8,7 +8,7 @@
 
 ### Ejercicio 1: Tu primer `commit`
 
-1.  **Clona el repositorio** que os he indicado.
+1.  **Clona el repositorio**.
 2.  **Crea un archivo** `tu_nombre.txt` y añade tu nombre y apellidos.
 3.  **Sube tu primer cambio** al repositorio remoto.
 
@@ -28,49 +28,54 @@
 
 ## Parte 2: Ahora, en equipo (Proyecto con Gitflow)
 
-¡Genial! Ya domináis el flujo de trabajo individual. Ahora vamos a usar Gitflow para colaborar en un proyecto.
+¡Genial! Ahora que domináis el flujo individual, vamos a usar Gitflow para colaborar en un proyecto.
 
 **¡Importante!** Antes de empezar, todo el equipo debe pasarse a la rama `develop`: `git checkout develop`
 
-El fichero de trabajo será `app/src/main/java/com/example/cursogit/ui/CalculatorScreen.kt`.
+El fichero de trabajo será `app/src/main/java/com/example/cursogit/ui/CalculatorScreen.kt`. El objetivo es hacer pequeños cambios visuales en la interfaz. No necesitáis saber programar, ¡solo buscar y reemplazar texto!
 
 ### Ejercicios
 
 En grupos, cada uno creará su propia rama `feature` a partir de `develop` y se encargará de una de las siguientes tareas:
 
-*   **Tarea 1 (Grupo 1)**: En la rama `feature/renombrar-boton-ac`, buscad el botón "AC" y cambiadle el texto a "C".
-*   **Tarea 2 (Grupo 2)**: En la rama `feature/comentario-igual`, buscad el `onClick` del botón `=` y añadid el comentario `// TODO: Lógica de cálculo`.
-*   **Tarea 3 (Grupo 3)**: En la rama `feature/color-operadores`, buscad los botones de los operadores (`/`, `x`, `-`, `+`, `=`) y cambiad su color por `Color.Blue`.
+*   **Tarea 1 (Grupo 1)**: En la rama `feature/renombrar-boton`, buscad la línea del botón "AC" y cambiadle el texto a "Limpiar".
 
-Cuando cada grupo termine, fusionad vuestra rama `feature` de vuelta en `develop`.
+*   **Tarea 2 (Grupo 2)**: En la rama `feature/cambiar-color`, buscad los botones de los operadores (`/`, `x`, `-`, `+`, `=`) y cambiad su color. Por ejemplo, a `Color.Red` o `Color.Blue`.
+
+*   **Tarea 3 (Grupo 3)**: En la rama `feature/modificar-display`, buscad el `Text` del display y cambiad el `"0"` inicial por vuestro nombre.
+
+Cuando cada grupo termine, fusionad vuestra rama `feature` de vuelta en `develop`. Si ejecutáis la app, ¡veréis vuestros cambios reflejados en la calculadora!
 
 ## Parte 3 (Opcional): ¡Houston, tenemos un conflicto!
 
-Este es un ejercicio avanzado para simular y resolver un conflicto de `merge`. Para ello, dos personas del equipo (Compañero/a A y Compañero/a B) tendréis que coordinaros:
+Este es un ejercicio para simular y resolver un conflicto de `merge`. Dos personas del equipo (Compañero/a A y Compañero/a B) haréis el mismo cambio de dos formas distintas.
 
-1.  **Compañero/a A**:
-    *   Crea una rama `feature/conflicto-a` desde `develop`.
-    *   En `CalculatorScreen.kt`, cambia el texto del botón `.` por `,`.
+1.  **Ambos partís de `develop`** y creáis vuestra propia rama (`feature/conflicto-a` y `feature/conflicto-b`).
+
+2.  **Compañero/a A**:
+    *   En `CalculatorScreen.kt`, buscad la línea del botón `.` y cambiad el texto por una coma (`,`).
     *   Sube los cambios y fusiona tu rama en `develop`.
-2.  **Compañero/a B** (¡ojo!, sin actualizar `develop` todavía):
-    *   Crea una rama `feature/conflicto-b` desde `develop`.
-    *   En `CalculatorScreen.kt`, cambia el texto del botón `.` por `PUNTO`.
-3.  **El Conflicto**:
-    *   El Compañero/a B actualiza `develop` (`git pull`) e intenta fusionar su rama `feature/conflicto-b`. ¡Aparecerá un conflicto!
-4.  **La Solución**:
-    *   Hablad entre vosotros, abrid el fichero, decidid qué cambio queréis mantener, borrad las marcas de Git (`<<<<<<<`, `=======`, `>>>>>>>`) y finalizad el merge con un nuevo commit.
+
+3.  **Compañero/a B**:
+    *   En `CalculatorScreen.kt`, buscad la línea del botón `.` y cambiad el texto por `PUNTO`.
+
+4.  **El Conflicto**:
+    *   El Compañero/a B actualiza `develop` (`git pull`) e intenta fusionar su rama. ¡Aparecerá un conflicto en esa línea!
+
+5.  **La Solución**:
+    *   Hablad entre vosotros, decidid qué cambio queréis conservar, borrad las marcas de Git (`<<<<<<<`, `=======`, `>>>>>>>`) y finalizad el merge.
 
 ---
 
 ## Anexo: Chuleta de Comandos
 
-*   **`git clone [URL]`**: Clona un repositorio remoto a tu máquina local.
-*   **`git status`**: Muestra el estado de los archivos en tu directorio de trabajo.
-*   **`git add [archivo]`**: Añade un archivo al área de "staging" (preparación).
-*   **`git commit -m "[mensaje]"`**: Guarda los cambios preparados en el repositorio local.
-*   **`git push`**: Sube tus commits al repositorio remoto.
-*   **`git pull`**: Descarga los cambios del repositorio remoto.
+*   **`git clone [URL]`**: Clona un repositorio remoto.
+*   **`git status`**: Muestra el estado de los archivos.
+*   **`git add [archivo]`**: Añade un archivo al "staging".
+*   **`git commit -m "[mensaje]"`**: Guarda los cambios en local.
+*   **`git push`**: Sube tus commits al remoto.
+*   **`git pull`**: Descarga los cambios del remoto.
 *   **`git branch [nombre-rama]`**: Crea una nueva rama.
 *   **`git checkout [nombre-rama]`**: Cambia a otra rama.
-*   **`git merge [nombre-rama]`**: Fusiona una rama con tu rama actual.
+*   **`git merge [nombre-rama]`**: Fusiona una rama con la actual.
 *   **`git log`**: Muestra el historial de commits.
