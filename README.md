@@ -20,9 +20,9 @@
 
 ### Ejercicio 3: Fusionando que es gerundio
 
-1.  **Vuelve a la rama principal** (`main`).
-2.  **Fusiona los cambios** de tu rama `feature/mi-comida-favorita` en `main`.
-3.  **Sube el resultado** de la fusión a la rama `main` remota.
+1.  **Vuelve a la rama de desarrollo** (`develop`).
+2.  **Fusiona los cambios** de tu rama `feature/mi-comida-favorita` en `develop`.
+3.  **Sube el resultado** de la fusión a la rama `develop` remota.
 
 ---
 
@@ -44,7 +44,7 @@ En grupos, cada uno creará su propia rama `feature` a partir de `develop` y se 
 
 *   **Tarea 3 (Grupo 3)**: En la rama `feature/modificar-display`, buscad el `Text` del display y cambiad el `"0"` inicial por vuestro nombre.
 
-Cuando cada grupo termine, fusionad vuestra rama `feature` de vuelta en `develop`. Si ejecutáis la app, ¡veréis vuestros cambios reflejados en la calculadora!
+Cuando cada grupo termine, subid vuestra rama y **abrid una Pull Request (PR)** en la plataforma (GitHub, GitLab...). Una Pull Request es una solicitud para integrar vuestros cambios en `develop`. Es el momento donde el resto del equipo puede revisar el código. Asignad a un compañero de otro grupo para que la revise y, una vez aprobada, ¡la podréis fusionar!
 
 ## Parte 3 (Opcional): ¡Houston, tenemos un conflicto!
 
@@ -54,13 +54,13 @@ Este es un ejercicio para simular y resolver un conflicto de `merge`. Dos person
 
 2.  **Compañero/a A**:
     *   En `CalculatorScreen.kt`, buscad la línea del botón `.` y cambiad el texto por una coma (`,`).
-    *   Sube los cambios y fusiona tu rama en `develop`.
+    *   Sube los cambios, abre una Pull Request y fusiónala en `develop`.
 
 3.  **Compañero/a B**:
     *   En `CalculatorScreen.kt`, buscad la línea del botón `.` y cambiad el texto por `PUNTO`.
 
 4.  **El Conflicto**:
-    *   El Compañero/a B actualiza `develop` (`git pull`) e intenta fusionar su rama. ¡Aparecerá un conflicto en esa línea!
+    *   El Compañero/a B intenta actualizar su rama con los últimos cambios de `develop` (`git pull origin develop`). ¡Aparecerá un conflicto en esa línea!
 
 5.  **La Solución**:
     *   Hablad entre vosotros, decidid qué cambio queréis conservar, borrad las marcas de Git (`<<<<<<<`, `=======`, `>>>>>>>`) y finalizad el merge.
