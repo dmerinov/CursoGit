@@ -8,9 +8,10 @@
 
 ### Ejercicio 1: Tu primer `commit`
 
-1.  **Clona el repositorio**.
-2.  **Crea un archivo** `tu_nombre.txt` y añade tu nombre y apellidos.
-3.  **Sube tu primer cambio** al repositorio remoto.
+1.  **Haz un "Fork" de este repositorio**: En la esquina superior derecha de la página (GitHub, GitLab...), haz clic en el botón "Fork". Esto creará una copia personal del proyecto en tu cuenta.
+2.  **Clona *tu* fork**: Una vez en la página de tu fork, clona ese repositorio a tu ordenador. ¡No el original!
+3.  **Crea un archivo** `tu_nombre.txt` y añade tu nombre y apellidos.
+4.  **Sube tu primer cambio** a tu repositorio remoto.
 
 ### Ejercicio 2: Jugando con ramas
 
@@ -28,15 +29,21 @@
 
 ## Parte 2: Ahora, en equipo (Proyecto con Gitflow)
 
-¡Genial! Ahora que domináis el flujo individual, vamos a usar Gitflow para colaborar en un proyecto.
+¡Genial! Ya habéis practicado en vuestro propio fork. Ahora, para colaborar de verdad, necesitamos un repositorio compartido.
 
-**¡Importante!** Antes de empezar, todo el equipo debe pasarse a la rama `develop`: `git checkout develop`
+### Preparando el repositorio del equipo
 
-El fichero de trabajo será `app/src/main/java/com/example/cursogit/ui/CalculatorScreen.kt`. El objetivo es hacer pequeños cambios visuales en la interfaz. No necesitáis saber programar, ¡solo buscar y reemplazar texto!
+1.  **Elegid un "Repositorio de Equipo"**: Uno de vosotros ofrecerá su fork para que sea el repositorio central del equipo. El resto puede borrar su fork para no liarse (en `Settings` de vuestro fork, al final del todo, `Delete this repository`).
+2.  **El líder del repo añade colaboradores**: El dueño del "Repositorio de Equipo" irá a la sección `Settings > Collaborators` de su fork y añadirá al resto del equipo.
+3.  **Todo el equipo clona el Repositorio de Equipo**: Ahora, todos (incluido el líder) borrarán su carpeta local y clonarán de nuevo, pero esta vez, el "Repositorio de Equipo".
 
-### Ejercicios
+A partir de ahora, **todos trabajáis sobre la misma copia del proyecto**.
 
-En grupos, cada uno creará su propia rama `feature` a partir de `develop` y se encargará de una de las siguientes tareas:
+**¡Importante!** Antes de empezar, aseguraos de que estáis en la rama `develop`: `git checkout develop`
+
+### Ejercicios en Grupo
+
+El fichero de trabajo será `app/src/main/java/com/example/cursogit/ui/CalculatorScreen.kt`.
 
 *   **Tarea 1 (Grupo 1)**: En la rama `feature/renombrar-boton`, buscad la línea del botón "AC" y cambiadle el texto a "Limpiar".
 
@@ -44,11 +51,11 @@ En grupos, cada uno creará su propia rama `feature` a partir de `develop` y se 
 
 *   **Tarea 3 (Grupo 3)**: En la rama `feature/modificar-display`, buscad el `Text` del display y cambiad el `"0"` inicial por vuestro nombre.
 
-Cuando cada grupo termine, subid vuestra rama y **abrid una Pull Request (PR)** en la plataforma (GitHub, GitLab...). Una Pull Request es una solicitud para integrar vuestros cambios en `develop`. Es el momento donde el resto del equipo puede revisar el código. Asignad a un compañero de otro grupo para que la revise y, una vez aprobada, ¡la podréis fusionar!
+Cuando cada grupo termine, subid vuestra rama y **abrid una Pull Request (PR)** a la rama `develop` del repositorio de vuestro equipo. Asignad a un compañero para que la revise y, una vez aprobada, ¡la podréis fusionar!
 
 ## Parte 3 (Opcional): ¡Houston, tenemos un conflicto!
 
-Este es un ejercicio para simular y resolver un conflicto de `merge`. Dos personas del equipo (Compañero/a A y Compañero/a B) haréis el mismo cambio de dos formas distintas.
+Este ejercicio es para simular un conflicto. Dos personas (Compañero/a A y B) haréis el mismo cambio de dos formas distintas.
 
 1.  **Ambos partís de `develop`** y creáis vuestra propia rama (`feature/conflicto-a` y `feature/conflicto-b`).
 
@@ -60,7 +67,7 @@ Este es un ejercicio para simular y resolver un conflicto de `merge`. Dos person
     *   En `CalculatorScreen.kt`, buscad la línea del botón `.` y cambiad el texto por `PUNTO`.
 
 4.  **El Conflicto**:
-    *   El Compañero/a B intenta actualizar su rama con los últimos cambios de `develop` (`git pull origin develop`). ¡Aparecerá un conflicto en esa línea!
+    *   El Compañero/a B intenta actualizar su rama con los últimos cambios de `develop` (`git pull origin develop`). ¡Aparecerá un conflicto!
 
 5.  **La Solución**:
     *   Hablad entre vosotros, decidid qué cambio queréis conservar, borrad las marcas de Git (`<<<<<<<`, `=======`, `>>>>>>>`) y finalizad el merge.
